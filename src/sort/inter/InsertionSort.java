@@ -1,4 +1,4 @@
-package homework.sort;
+package sort.inter;
 
 public class InsertionSort implements Sort {
 

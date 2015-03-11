@@ -28,40 +28,113 @@ public class SortMain {
 		return result;
 	}
 
-	int[] merge_sort(int[] arr1, int[] arr2) {
-		int[] result = new int[arr1.length + arr2.length];
+	public static int[] copyOfRange(int[] original, int from, int to) {
+		int newLength = to - from;
+		if (newLength < 0)
+			throw new IllegalArgumentException(from + " > " + to);
+		int[] copy = new int[newLength];
+
+		System.arraycopy(original, from, copy, 0,
+				Math.min(original.length - from, newLength));
+		return copy;
+	}
+
+	int[] merge_sort(int[] arr) {
+		
+		if(arr.length != 1){
+			int end = arr.length;
+			int center = end / 2;
+
+			int[] leftArr = new int[center + 1];
+			int[] rightArr = new int[end - center + 1];
+
+			for (int i = 0; i < center; i++) {
+				leftArr[i] = arr[i];
+				System.out.print(leftArr[i] + ", ");
+			}
+			for (int i = center; i < end; i++) {
+				int idx = i - center;
+				rightArr[idx] = arr[i];
+				System.out.print(rightArr[idx] + ", ");
+			}
+			merge_sort(leftArr);
+			merge_sort(rightArr);
+			
+			
+		}
+		
+//
+//		System.out.println("");
+//		for (int i = 0; i < leftArr.length; i++) {
+//			System.out.print(leftArr[i] + ", ");
+//		}
+//		System.out.println("leftArr");
+//		for (int i = 0; i < rightArr.length; i++) {
+//			System.out.print(rightArr[i] + ", ");
+//		}
+//		System.out.println("rightArr");
+//		System.out.println("--------");
+		int i = 0;
+		int j = 0;
+		
+		for(int k=0; k<arr.length;k++) {
+			if(leftArr[i] <= rightArr[j]) {
+				arr[k] = leftArr[i];
+				i++;
+			} else {
+				arr[k] = rightArr[i];
+				j++;
+			}
+		}
+		
+		
+		int[] result = merge_sort(leftArr,rightArr);
+		return result;
+	}
+	
+//			10 𝑖=1
+//			11 𝑗=1
+//			12 for𝑘=𝑝to𝑟 
+//			13 if 𝐿 𝑖 <= 𝑅 𝑗 
+//			14 𝐴𝑘 =𝐿𝑖 
+//			15 𝑖=𝑖+1
+//			￼￼￼￼16 else 𝐴 𝑘 = 𝑅 𝑗 
+//			17 𝑗=𝑗+1
+
+	int[] merge_sort(int[] leftArr, int[] rightArr) {
+		int[] result = new int[leftArr.length + rightArr.length];
 		int i = 0;
 		int j = 0;
 		int idx = 0;
 		while (true) {
-			if (i < arr1.length && j < arr2.length) {
-				if (arr1[i] == arr2[j]) {
-					System.out.println(i + "arr1: " + arr1[i] + "  " + j
-							+ "arr2: " + arr2[j]);
-					result[idx] = arr1[i];
+			if (i < leftArr.length && j < rightArr.length) {
+				if (leftArr[i] == rightArr[j]) {
+					System.out.println(i + "leftArr: " + leftArr[i] + "  " + j
+							+ "rightArr: " + rightArr[j]);
+					result[idx] = leftArr[i];
 					idx++;
-					result[idx] = arr2[j];
+					result[idx] = rightArr[j];
 					i = i + 1;
 					j = j + 1;
 					System.out.println(idx + "  " + result[idx]);
-				} else if (arr1[i] > arr2[j]) {
-					System.out.println(i + "arr1: " + arr1[i] + "  " + j
-							+ "arr2: " + arr2[j]);
-					result[idx] = arr2[j];
+				} else if (leftArr[i] > rightArr[j]) {
+					System.out.println(i + "leftArr: " + leftArr[i] + "  " + j
+							+ "rightArr: " + rightArr[j]);
+					result[idx] = rightArr[j];
 					j = j + 1;
 					System.out.println(idx + "  " + result[idx]);
 				} else {
-					System.out.println(i + "arr1: " + arr1[i] + "  " + j
-							+ "arr2: " + arr2[j]);
-					result[idx] = arr1[i];
+					System.out.println(i + "leftArr: " + leftArr[i] + "  " + j
+							+ "rightArr: " + rightArr[j]);
+					result[idx] = leftArr[i];
 					i = i + 1;
 					System.out.println(idx + "  " + result[idx]);
 				}
-			} else if (i < arr1.length) {
-				result[idx] = arr1[i];
+			} else if (i < leftArr.length) {
+				result[idx] = leftArr[i];
 				i++;
-			} else if (j < arr2.length) {
-				result[idx] = arr2[j];
+			} else if (j < rightArr.length) {
+				result[idx] = rightArr[j];
 				j++;
 			} else {
 				break;

@@ -1,11 +1,31 @@
 package homework.sort;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Test;
+
+
 
 public class SortMainTest {
 
 	
+//	     @Parameters(name= "{index}: fib[{0}]={1}")
+//	     public static Iterable<Object[]> data() {
+//	    	 int[] 
+//	    	 return Arrays.asList(new Object[][] {{{0}},{}});
+//	     }
+//	     
+//	     개수: 0개, 1개, 2개, 20개
+//	     • 순서: 증가순, 감소순, 랜덤, 동일한 숫자
+//	     
+//	     private Sort s;
+//
+//	     public SortMainTest(Sort s) {
+//	         this.s= s;
+//	     }
+	     
 	@Test
 	public void sort_함수가_제대로_작동한다() {
 		SortMain s = new SortMain();

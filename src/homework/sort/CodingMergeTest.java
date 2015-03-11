@@ -9,10 +9,10 @@ public class CodingMergeTest {
 	@Test
 	public void 짝수_배열이_반으로_나뉘어져_2개의배열이_된다() {
 		SortMain s = new SortMain();
-		int[] arr = {1,5,3,2};
-		int[] a = s.merge_sort(arr);
-		int[] expected = {1,2,3,5};
-		assertArrayEquals(expected, a);
+		int[] arr = {1,2,4,3};
+		int[] run = s.merge_sort(arr);
+		int[] expected = {1,2,3,4};
+		assertArrayEquals(expected, run);
 	}
 	
 	@Test

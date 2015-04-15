@@ -36,4 +36,10 @@ public class SearchValueTest {
 		Object result = SearchValue.serach(arr, 4);
 		assertEquals(3, result);
 	}
+	@Test
+	public void 배열에_값이_없을때() {
+		int[] arr = {1,2,3,4,5,6};
+		Object result = SearchValue.serach(arr, 7);
+		assertEquals(null, result);
+	}
 }

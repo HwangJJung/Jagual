@@ -61,14 +61,14 @@ public class SortMain {
 		
 		try{
 			for (int k = from; k <= to; k++) {
-				if (i > mid) {
-					arr[k] = buffer[j++];
-				} else if (j > to) {
-					arr[k] = buffer[i++];
-				} else if (buffer[i] < buffer[j]) {
-					arr[k] = buffer[i++];
+				if (i > mid) { // 오른쪽
+					arr[k] = buffer[j++]; //원래 베열의 중간 이후(R)부터 채워넣어야지
+				} else if (j > to) { // 왼쪽 
+					arr[k] = buffer[i++]; // 원래 배열의 처음(L)부터 채워넣어야지
+				} else if (buffer[i] < buffer[j]) { //왼쪽값이 오른쪽 값보다 작아 
+					arr[k] = buffer[i++]; // 원래 배열의 처음(L)부터 채워넣어야지.
 				}else{
-					arr[k] = buffer[j++];
+					arr[k] = buffer[j++]; // 원래 배열의 중간(R)부터 채워넣어야지.
 				}
 			}
 		}catch(ArrayIndexOutOfBoundsException e) {

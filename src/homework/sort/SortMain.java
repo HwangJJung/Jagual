@@ -28,24 +28,23 @@ public class SortMain {
 		return result;
 	}
 
-	public int[] merge_sort(int[] arr) {
+	public int[] mergeSort(int[] arr) {
 		if (arr.length == 0) {
 		} else {
-			merge_sort(arr, 0, arr.length - 1);
+			mergeSort(arr, 0, arr.length - 1);
 		}
 		for(int i=0; i < arr.length; i++) {
 		//	System.out.print(arr[i]+", ");
 		}
 		return arr;
-
 	}
 
-	public void merge_sort(int[] arr, int from, int to) {
+	public void mergeSort(int[] arr, int from, int to) {
 		int newLength = to - from;
 		if (0 < newLength) {
 			int mid = from + newLength / 2;
-			merge_sort(arr, from, mid);
-			merge_sort(arr, mid + 1, to);
+			mergeSort(arr, from, mid);
+			mergeSort(arr, mid + 1, to);
 			merge(arr, from, mid, to);
 
 		}

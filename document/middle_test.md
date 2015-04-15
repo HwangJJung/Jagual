@@ -46,15 +46,15 @@ cpu에게 job을 할당하는, job scheduling 기법의 하나로 우선순위�
 
 ### 6. Fibonacci number 는 다들 아는대로 정의된다. 아래의  방법으로 F(n)을 구하는 알고리즘을 기술하시오.
 1. Recursion
-	```java
+```java
 	void int fibonacci (int n) {
 		if(n < 0) return -1; //error
 		if(n < 2) return n; //f(0)=0,f(1)=1
 		return fibonacci(n-1) + fibonacci(n-2);
 	}
-	``` 
+``` 
 2. Dynamic Programming
-	```java
+```java
 	void int fibonacci (int n) {
 		int finonacciArr[n+1];
 	    int idx;
@@ -66,7 +66,7 @@ cpu에게 job을 할당하는, job scheduling 기법의 하나로 우선순위�
 	    }
 	    return fibonacciArr[n];
 	}
-	```
+```
 3. Divide and conquer 방법
 	{f(n+1),f(n)}={{1,1},{1,0}}^n * {f1,f0} 이다. //행렬의 곱
 	따라서 이 문제는 M={{1,1},{1,0}} 일 때, M의 거듭제곱을 Divide and Conquer로 구하는 문제로 바꿀 수 있다.

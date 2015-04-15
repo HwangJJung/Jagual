@@ -20,6 +20,7 @@ induction의 한 종류로 다음의 특징을 만족해야 한다.
  문제가 충분히 작아졌을 땐 직접적으로 해를 구한다.
  3. 합치는 과정
  작은 문제들의 해를 이용해 주어진 문제의 해를 구한다.
+ ![divideAndConquerTimeComplexity](../image/DivideAndConquerTC.png)
 
 ### 3. Heap 자료구조의 특징과 장단점에 대해서 간략하게 기술하시오.
 Max Heap
